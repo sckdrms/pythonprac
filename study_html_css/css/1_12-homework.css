@@ -1,0 +1,66 @@
+.container{
+  background-color: rgb(255, 239, 239);
+  width: 450px;
+  height: 500px;
+  position: relative;
+}
+
+.contact{
+  position: absolute;
+  left: 30px;
+  top: 20px;
+}
+
+.mail{
+  position: absolute;
+  left:35px;
+  top: 70px;
+}
+
+.emailbox{
+  width: 350px;
+  height: 30px;
+}
+
+.name1{
+
+  float: left;
+  width: auto;
+}
+
+.name2{
+  float: right;
+  width: auto;
+}
+
+.Fn{
+  height: 30px;
+}
+.Fn1{
+  width: 150px;
+}
+.Ln{
+  height: 30px;
+}
+
+.Ln1{
+  width: 150px;
+}
+
+.msg{
+  position: absolute;
+
+}
+
+.msgg{
+  width: 350px;
+  height: 100px;
+}
+
+.btn{
+  color: aliceblue;
+  background-color: rgb(78, 78, 40);
+  border-radius: 5px;
+  border: none;
+  float: right;
+}

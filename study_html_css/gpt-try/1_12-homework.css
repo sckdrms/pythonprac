@@ -1,0 +1,46 @@
+.container{
+  background-color: rgb(255, 239, 239);
+  width: 450px;
+  height: 500px;
+  margin: auto;
+  position: relative;
+}
+
+.contact{
+  padding-left: 30px;
+  padding-top: 20px;
+}
+
+.mail {
+  padding-left: 35px;
+  padding-top: 70px;
+}
+
+.emailbox{
+  width: 350px;
+  height: 30px;
+  margin-bottom: 20px;
+}
+
+.name-field {
+  display: flex;
+  justify-content: space-between;
+}
+
+.first-name, .last-name {
+  width: 45%;
+}
+
+.msgg{
+  width: 350px;
+  height: 100px;
+}
+
+.btn{
+  color: aliceblue;
+  background-color: rgb(78, 78, 40);
+  border-radius: 5px;
+  border: none;
+  float: right;
+  margin-top: 10px;
+}
