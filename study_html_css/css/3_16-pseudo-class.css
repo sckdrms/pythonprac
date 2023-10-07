@@ -1,0 +1,39 @@
+.btn{
+  padding: 15px;
+  font-size: 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: coral;
+  color: white;
+
+  cursor: pointer;
+}
+
+.btn:hover{
+  background-color: brown;
+}
+.btn:focus{
+  background-color: chocolate;
+}
+.btn:active{
+  background-color: burlywood;
+}
+
+
+.input{
+  font-size: 20px;
+}
+.input:active{
+  background-color: aqua;
+}
+
+.link{
+  text-decoration: none;
+
+}
+.link:link{
+  color: red;
+}
+.link:visited{
+  color: blue;
+}
