@@ -1,0 +1,23 @@
+/* .red{
+  background-color: red;
+  width: 50px;
+  height: 40px;
+}
+
+.blue{
+  background-color: blue;
+  width: 50px;
+  height: 40px;
+} */
+
+button{
+  width: 50px;
+  height: 40px;
+}
+.red{
+  background-color: red;
+}
+.blue{
+  background-color: blue;
+  border-bottom: 10px solid black;
+}
