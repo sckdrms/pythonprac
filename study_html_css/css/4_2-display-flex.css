@@ -1,0 +1,21 @@
+.flex-item {
+
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  background-color: rgb(184, 184, 184);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.felx-container {
+  height: 500px;
+  display: flex;
+  /* justify-content: center; */
+  /* flex-direction: column; */
+  /* flex-wrap: wrap; */
+  /* align-items: center; */
+  
+}

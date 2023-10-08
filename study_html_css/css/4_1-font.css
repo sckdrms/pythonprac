@@ -1,0 +1,20 @@
+@font-face{
+  font-family: '폰트';
+  src:url(../font/font-study.ttf)
+}
+
+.font{
+  margin: 0px;
+  font-family: '폰트', 'gulim', 'dotum', 'arial';
+}
+
+.font1{
+  font-family: 'Hahmlet', serif;
+  font-family: 'Nanum Gothic Coding', cursive;
+  ;
+}
+
+.font2{
+  font-family: 'Bagel Fat One', cursive;
+
+}

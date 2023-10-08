@@ -1,0 +1,13 @@
+.test{
+  width: 100px;
+  height: 100px;
+  background-color: grey;
+}
+
+
+@media screen and (max-width:1200px){
+  .main-title{
+    font-size: 30px;
+  }
+  
+}
