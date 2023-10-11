@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+}
+div {
+  box-sizing: border-box;
+}
+h1 {
+  font-size: 30px;
+}
+h4 {
+  font-size: 22px;
+}
+
+.bg{
+  background: linear-gradient(to bottom, rgb(92, 179, 255), rgb(92, 90, 255));
+  height: 550px;
+  padding: 20px;
+}
+
+.main-container{
+  max-width: 1200px;
+  margin: auto;
+  /* background-color:  rgb(92, 179, 255); */
+}
+
+.sub-container{
+  margin-top: 50px;
+  width: 450px;
+  color: white;
+  float: left;
+}
+
+.button{
+  background-color: rgb(65, 65, 65);
+  color: white;
+  border-radius: 5px;
+  width: 8em;
+  height: 3em;
+}
+
+.img{
+  width: 400px; 
+  float: right; 
+  margin-top: 95px;
+}
+@media screen and (max-width:992px) {
+  .img{
+    width: 260px;
+    float: none;
+    display: block;
+    margin: auto;
+  }
+  .sub-container{
+    text-align: center;
+    float: none;
+    margin-top: 50px;
+  }
+}

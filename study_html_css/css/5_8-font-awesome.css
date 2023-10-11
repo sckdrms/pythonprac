@@ -1,43 +1,110 @@
-.padding1 i{
-  border-radius: 100px;
-  background-color: rgb(255, 163, 163);
-  width: 50px;
-  height: 50px;
-  text-align: center;
-  padding-top: 11px;
-  margin: 10px;
-  box-sizing: border-box;
-  color: white;
+.padding1 i {
+    border-radius: 100px;
+    background-color: rgb(255, 163, 163);
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    padding-top: 11px;
+    margin: 10px;
+    box-sizing: border-box;
+    color: white;
 }
 
-.container{
-  display: flex;
-  flex-wrap: wrap;
-  text-align: center;
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
 }
 
-.padding1{
-  background-color: rgb(245, 245, 245);
-  padding: 20px;
-  box-sizing: border-box;
-  width: 100%;
+.padding1 {
+    background-color: rgb(245, 245, 245);
+    padding: 20px;
+    box-sizing: border-box;
+    width: 100%;
 }
 
-.padding2{
-  background-color: rgb(255, 212, 212);
-  padding: 10px;
+.padding2 {
+    background-color: rgb(255, 212, 212);
+    padding: 10px;
 }
 
+.product-bg {
+    display: flex;
+    background-color: #eee;
+    padding: 15px;
+}
 
+.product-container {
+    display: flex;
+    max-width: 90%;
+    margin: auto;
+}
+
+.product-item {
+    width: 33%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.product-item img {
+    width: 100%;
+    display: block;
+}
+
+.overlay1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0;
+    transition: all 1s;
+}
+
+.overlay1:hover {
+    opacity: 0.5;
+}
+
+.overlay2 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.overlay2:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: black;
+    transition: height 0.8s ease-in-out, opacity 0.8s ease-in-out;
+    opacity: 0;
+}
+
+.overlay2:hover:before {
+    opacity: 0.5;
+    height: 50%;
+}
+
+.overlay3 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
 
 @media screen and (min-width: 768px) {
-  .padding1 {
-    width: 50%;
-  }
+    .padding1 {
+        width: 50%;
+    }
 }
 
 @media screen and (min-width: 576px) {
-  .padding1 {
-    width: 25%;
-  }
+    .padding1 {
+        width: 25%;
+    }
 }
