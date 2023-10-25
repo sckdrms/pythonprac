@@ -1,0 +1,23 @@
+.box {
+  width: 200px;
+  height: 100px;
+  background-color: aqua;
+}
+
+.blue, .green, .red {
+  width: 200px;
+  height: 200px;
+  padding: 20px;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: blue;
+}/*# sourceMappingURL=9_5-extend.css.map */

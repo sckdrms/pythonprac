@@ -1,0 +1,12 @@
+.pseudo::after{
+  content: 'asd';
+  color: red;
+  font-size: 30px;
+}
+
+.input-file::file-selector-button{
+  background-color: aqua;
+  border: none;
+  padding: 20px;
+
+}

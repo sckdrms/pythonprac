@@ -1,0 +1,94 @@
+.pseudo::after{
+  content: 'asd';
+  color: red;
+  font-size: 30px;
+}
+
+.input-file::file-selector-button{
+  background-color: aqua;
+  border: none;
+  padding: 20px;
+
+}
+
+.input-range::-webkit-slider-thumb{
+  background-color: red;
+  color: red;
+}
+
+input[type="range"]{
+  appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  background-color: red;
+  color: red;
+  width: 100px;
+  height: 30px;
+}
+
+.p1{
+  /* background-color: aqua; */
+}
+/* 
+progress {
+
+  -webkit-appearance: none;
+  -moz-appearance : none;
+  appearance: none;
+  background: white;
+  color: red;
+}
+
+progress::-webkit-progress-inner-element {
+  appearance: none;
+  box-sizing: inherit;
+  background-color: white;
+  -webkit-user-modify: read-only;
+  block-size: 100%;
+  inline-size: 100%;
+}
+
+progress::-webkit-progress-bar {
+  appearance: none;
+  background-color: red;
+  block-size: 10%;
+  inline-size: 100%;
+  border-radius: 2px;
+  box-sizing: border-box;
+  -webkit-user-modify: read-only !important;
+}
+
+progress::-webkit-progress-value {
+  appearance: none;
+  background-color: green;
+  block-size: 100%;
+  inline-size: 50%;
+  box-sizing: border-box;
+  -webkit-user-modify: read-only !important;
+} */
+
+progress {
+  /*기본 배경은 없애주는게 좋습니다*/
+  -webkit-appearance: none;
+  -moz-appearance : none;
+  appearance: none;
+  background: white;
+/* IE10 호환성용 */
+  color: red;
+}
+progress::-webkit-progress-bar {
+  background-color: #eee;
+  border-radius: 2px;
+}
+progress::-webkit-progress-value {
+  background-color: red;
+  border-radius: 2px;
+}
+
+/*파이어폭스 호환성을 위해*/
+progress::-moz-progress-bar {
+  background-color: red;
+  border-radius: 2px;
+}
