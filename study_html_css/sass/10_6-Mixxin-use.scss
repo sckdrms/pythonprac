@@ -1,0 +1,20 @@
+@use '_10_1-use.scss' as widhi;
+
+@mixin font($size, $color){
+  font-size: $size;
+  letter-spacing: -1px;
+  color: $color;
+}
+
+h2{
+  @include font(30px, red);
+  @include widhi.widhi(100px, 100px, black);
+}
+
+h3{
+  @include font(50px, blue);
+}
+
+h4{
+  @include font(40px, green);
+}

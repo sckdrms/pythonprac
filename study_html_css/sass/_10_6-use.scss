@@ -1,0 +1,5 @@
+@mixin widhi($wid, $hi, $bk) {
+  width: ($wid);
+  height: ($hi);
+  background-color: ($bk);
+}

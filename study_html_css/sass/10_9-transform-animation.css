@@ -1,0 +1,28 @@
+/*# sourceMappingURL=10_9-transform-animation.css.map */
+
+.ani{
+  text-align: center;
+}
+
+.ani:hover{
+  animation-name: ani1;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes ani1{
+  0%{
+    transform: translatex(0px);
+  }
+
+  33%{
+    transform: translatex(-100px);
+  }
+
+  66%{
+    transform: translatex(100px);
+  }
+  100%{
+  transform: translatex(0px);
+  }
+}

@@ -1,0 +1,35 @@
+li {
+  width: 400px;
+  height: 50px;
+  list-style-type: none;
+  border: solid 1px #eeeeee;
+}
+li:hover {
+  background-color: skyblue;
+}
+
+.a3 {
+  background-color: rgb(255, 240, 223);
+  color: rgb(188, 116, 0);
+}
+
+.a2 {
+  background-color: rgb(234, 234, 255);
+  color: rgb(86, 86, 255);
+}
+
+.a1 {
+  background-color: rgb(185, 255, 185);
+  color: rgb(23, 165, 23);
+}
+
+.alcontainer div {
+  width: 600px;
+  height: 50px;
+  padding: 10px;
+  border-radius: 20px;
+  margin: 5px;
+}
+.alcontainer p {
+  vertical-align: middle;
+}/*# sourceMappingURL=10_7-homework.css.map */

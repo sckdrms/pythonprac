@@ -1,0 +1,45 @@
+@mixin size($wid, $hi) {
+  width: ($wid);
+  height: ($hi);
+  &:hover{ background-color: skyblue;}
+  list-style-type: none;
+  border: solid 1px #eeeeee;
+}
+
+li{
+  @include size(400px, 50px);
+}
+
+@mixin hw2() {
+  
+}
+
+@mixin alert($color, $bk) {
+  background-color: $bk;
+  color: $color;
+}
+
+.a3{
+  @include alert( rgb(188, 116, 0), rgb(255, 240, 223) );
+}
+
+.a2{
+  @include alert(rgb(86, 86, 255),rgb(234, 234, 255) );
+}
+.a1{
+  @include alert(rgb(23, 165, 23),rgb(185, 255, 185) );
+}
+.alcontainer{
+  div{
+    width: 600px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 20px ;
+    margin: 5px;
+  }
+
+  p{
+    vertical-align: middle;
+  }
+}
+
