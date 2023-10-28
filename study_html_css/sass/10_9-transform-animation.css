@@ -1,8 +1,11 @@
 /*# sourceMappingURL=10_9-transform-animation.css.map */
 
 .ani{
+  margin: 100px;
   text-align: center;
-}
+  padding: 10px;
+  background-color: skyblue}
+
 
 .ani:hover{
   animation-name: ani1;
