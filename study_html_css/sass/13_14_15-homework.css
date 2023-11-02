@@ -1,0 +1,27 @@
+.icon1 {
+  font-size: 20px;
+  z-index: 6;
+  float: right;
+  margin-right: 13px;
+  margin-top: 75px;
+}
+
+.icon2 {
+  font-size: 20px;
+  z-index: 6;
+  float: right;
+  margin-right: 13px;
+  margin-top: 125px;
+}
+
+.head {
+  width: 10px;
+}/*# sourceMappingURL=13_14_15-homework.css.map */
+
+.sidebar{
+  width: 300px;
+  height: 100vw;
+  background-color: rgb(38, 38, 187);
+  z-index: 5;
+  float: left;
+}
