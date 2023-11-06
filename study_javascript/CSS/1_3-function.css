@@ -1,0 +1,13 @@
+.alertbox{
+  background-color: skyblue;
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  display: none;
+  margin: 5px;
+}
+.close{
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+}
