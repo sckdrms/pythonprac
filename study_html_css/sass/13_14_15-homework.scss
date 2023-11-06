@@ -1,0 +1,20 @@
+@mixin icon($mt){
+  font-size: 20px;
+  z-index: 6;
+  float: right;
+  margin-right: 13px;
+  margin-top: $mt;
+}
+
+.icon1{
+  @include icon(75px)
+}
+
+.icon2{
+  @include icon(125px)
+}
+
+
+.head{
+  width: 10px;
+}
