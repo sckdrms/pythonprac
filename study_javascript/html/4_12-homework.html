@@ -32,15 +32,65 @@
 
   <input type="text" id="number">
   <button onclick="삼육구게임()">게임 시작</button>
+<div>.</div>
+<div>.</div>
+<div>.</div>
+
   
+  <input type="text" id="score1">
+  +
+  <input type="text" id="score2">
+  <button onclick="시험합격()">채점하기</button>
+  
+
+
   <script>
     function 삼육구게임(){
-      if(document.getElementById('number').value % 3 === 0){
+      if(document.getElementById('number').value % 9 === 0){
+        console.log('9박수')
+      }
+        else if(document.getElementById('number').value % 3 === 0){
         console.log('박수')
       } else {
         console.log('패스')
       }
     }
+
+    // function 시험합격(){
+    //   if (document.getElementById('score1')+document.getElementById('score2').value >= 120 ){
+    //     console.log('합격입니다.')
+    //   }
+    //   else if(document.getElementById('score1').value <= 40 && document.getElementById('score2').value <= 40){
+    //     console.log('공부 안했음?')
+    //   }
+    //   else if(document.getElementById('score1').value <= 40){
+    //     console.log('필기시험 점수 미달입니다.')
+    //   }
+    //   else if(document.getElementById('score2').value <= 40){
+    //     console.log('실기시험 점수 미달입니다.')
+    //   }
+    // }
+
+    function 시험합격() {
+    var score1 = parseInt(document.getElementById('score1').value);
+    var score2 = parseInt(document.getElementById('score2').value);
+
+
+    if (score1 <= 40 && score2 <= 40) {
+      console.log('공부 안했음?');
+    }
+    else if (score1 <= 40) {
+      console.log('필기시험 점수 미달입니다.');
+    }
+    else if (score2 <= 40) {
+      console.log('실기시험 점수 미달입니다.');
+    }
+    else if (score1 + score2 >= 120) {
+      console.log('합격입니다.');
+    }
+  }
+
+
   </script>
   
 
