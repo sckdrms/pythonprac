@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="../CSS/13_11-event-bubbleing.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+  </style>
+</head>
+<body>
+
+  <button id="btn-log">로그인</button>
+  <div class="black-bg">
+    <div class="white-bg">
+      <h4>로그인하세요</h4>
+
+
+
+      <form>
+        <div class="my-3">
+          <input type="text" name="userID" class="form-control" id="idbox">
+        </div>
+        <div class="my-3">
+          <input type="password" class="form-control" id="pwbox">
+        </div>
+        <button type="submit" class="btn btn-primary" id="submit">전송</button>
+        <button type="button" class="btn btn-danger" id="close">닫기</button>
+      </form>
+      
+
+
+    </div>
+  </div> 
+
+
+
+  <!-- <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <span class="navbar-brand">Navbar</span>
+      <button class="navbar-toggler" type="button">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+
+  <ul class="list-group">
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
+    <li class="list-group-item">A fourth item</li>
+    <li class="list-group-item">And a fifth one</li>
+  </ul>  -->
+
+  <script>
+    $('#btn-log').on('click',function(){
+      $('.black-bg').addClass('show-modal')
+    })
+
+    $('#close').on('click', function(){
+      $('.black-bg').removeClass('show-modal')
+    })
+
+    $('.black-bg').on('click', function(e){
+      if($(e.target).is('.black-bg')) {
+    $('.black-bg').removeClass('show-modal');
+  }
+
+    })
+
+//     function checkUserId() {
+//   var userId = document.getElementsByName('userID')[0].value;
+//   if (userId.trim() == "") {
+//     alert("아이디를 입력해주세요!");
+//     return false;
+//   }
+//   return true;
+// }
+
+  $('form').on('submit', function(){
+
+    var inputid = document.getElementById('idbox').value;
+
+    if (/[A-Z]/.test){}
+
+
+    if (!/\S+@\S+.\S+/.test(inputid))
+    {
+      alert('이메일 형식 아님')
+    }
+    else if (document.getElementById('idbox').value == '' && document.getElementById('pwbox').value == '')
+    {
+      alert('아이디와 비밀번호를 입력하세요.')
+    }
+    else if(document.getElementById('idbox').value ==''){
+      alert('아이디를 입력하세요')
+    }
+    else if(document.getElementById('idbox').value.length < 6){
+      alert('아이디를 6자리 이상 입력하세요.')
+    }
+    else if(document.getElementById('pwbox').value ==''){
+      alert('비밀번호를 입력하세요')
+    }
+    else if(document.getElementById('pwbox').value.length < 6){
+      alert('비밀번로를 6자리 이상 입력하세요.')
+    }
+  })
+
+  if(1==3){
+    console.log('참입니다1');
+  } else if(3==3){
+    console.log('참입니다2')
+  }
+
+
+    // if($('#submit').on('click', function(){
+    //   alert('아아디 입력하세요')
+    // }));
+
+
+    // $('.navbar-toggler').on('click',function(){
+    //   $('.list-group').slideToggle()
+    // })
+
+  </script>
+
+
+</body>
+</html>
