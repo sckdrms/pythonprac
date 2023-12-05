@@ -1,11 +1,11 @@
 var 버튼 = $('.tab-button')
 var 콘텐츠 = $('.tab-content')
 
-// for (let i = 0; i < $('.tab-button').length; i ++){
-//   버튼.eq(i).on('click', function(){
-//   탭열기(i)
-//   })
-// }
+for (let i = 0; i < $('.tab-button').length; i ++){
+  버튼.eq(i).on('click', function(){
+  탭열기(i)
+})
+}
 
 
 

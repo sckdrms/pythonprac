@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="../CSS/15_2-data-binding.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+  </style>
+</head>
+<body>
+
+  
+  <div class="card-group container">
+    <div class="card">
+      <img src="https://via.placeholder.com/600">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-price">가격 : 70000</p>
+        <button class="btn btn-danger">주문하기</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/600">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-price">가격 : 70000</p>
+        <button class="btn btn-danger">주문하기</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/600">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-price">가격 : 70000</p>
+        <button class="btn btn-danger">주문하기</button>
+      </div>
+    </div>
+  </div>
+
+
+<div class="container mt-3">
+  <div class="card p-3">
+    <span class="car-title">차종</span>
+    <span class="car-price">가격</span>
+  </div>
+</div>
+
+  <div class="container mt-5">
+    <ul class="list">
+      <li class="tab-button">Products</li>
+      <li class="tab-button orange">Information</li>
+      <li class="tab-button">Shipping</li>
+    </ul>
+    <div class="tab-content">
+      <p>상품설명입니다. Product</p>
+    </div>
+    <div class="tab-content show">
+      <p>스펙설명입니다. Information</p>
+    </div>
+    <div class="tab-content">
+      <p>배송정보입니다. Shipping</p>
+    </div>
+  </div> 
+
+
+
+<script>
+
+
+var products = [
+  { id : 0,  title : 'Blossom Dress', price : 70000 },
+  { id : 1,  title : 'Springfield Shirt', price : 50000 },
+  { id : 2,  title : 'Black Monastery', price: 60000 }
+];
+
+for(let index = 0; index < $('.card').length; index++){
+  정보(index)
+}
+
+function 정보(i){
+  $('.card').eq(i).find('.card-title').html(products[i].title);
+  $('.card').eq(i).find('.card-price').html('가격 : ' + products[i].price);
+}
+
+</script>
+
+
+
+<script>
+
+var car2 = {name: '배송비', price: [70000, 3000, 4000]}
+  $('.car-title').html(car2.name)
+  // $('.car-title').html(car2['name'])
+  $('.car-price').html(car2.price[1])
+
+
+</script>
+
+
+
+<script>
+
+var 버튼 = $('.tab-button')
+var 콘텐츠 = $('.tab-content')
+
+for (let i = 0; i < $('.tab-button').length; i ++){
+  버튼.eq(i).on('click', function(){
+  탭열기(i)
+})
+}
+
+function 탭열기(변수){
+  
+    버튼.removeClass('orange')
+    버튼.eq(변수).addClass('orange')
+  
+    콘텐츠.removeClass('show')
+    콘텐츠.eq(변수).addClass('show')
+  
+
+}
+</script>
+
+</body>
+</html>
