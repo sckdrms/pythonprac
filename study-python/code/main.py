@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QVBoxLayout, QWidget, QLabel, QHBoxLayout
 from PyQt5.QtGui import QPainter, QFont, QPen, QBrush, QPixmap, QColor, QFontDatabase
