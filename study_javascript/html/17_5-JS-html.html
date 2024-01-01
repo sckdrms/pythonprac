@@ -58,10 +58,11 @@
   <select class="form-select mt-2">
     <option>모자</option>
     <option>셔츠</option>
+    <option>바지</option>
   </select>
 </form>
 
-<form class="container my-5 form-group form-hide" id="shirt">
+<form class="container my-5 form-group form-hide" id="size">
   <p>사이즈 선택</p>
   <select class="form-select mt-2">
     <option>95</option>
@@ -69,6 +70,43 @@
     <option>105</option>
   </select>
 </form>
+
+
+
+<div id="test">
+
+</div>
+
+<script>
+  a.innerHTML= '안녕';
+  $('#test').append(a);
+</script>
+
+
+
+<script>
+  $('.form-select').eq(0).on('input', function(){
+  var value = $('.form-select').eq(0).val();
+  if (value == '셔츠') {
+    $('.form-group').eq(1).removeClass('form-hide');
+  }
+
+  else if (value == '모자') {
+    $('.form-group').eq(1).addClass('form-hide');
+  }
+
+  else if (value == '바지') {
+    $('.form-group').eq(1).removeClass('form-hide');
+    var 바지사이즈 = `<option>28</option><option>30</option><option>32</option>`;
+    $('.form-select').eq(1).html(바지사이즈);
+  };
+
+
+
+})
+</script>
+
+
 
 
 
@@ -90,23 +128,7 @@
   </div> 
 
 
-<script>
-      $('.form-select').eq(0).on('input', function(){
-      var value = $('.form-select').eq(0).val();
-      if (value == '셔츠') {
-        $('.form-group').eq(1).removeClass('form-hide');
-      }
-  
-    });
 
-    $('.form-select').eq(0).on('input', function(){
-      var value = $('.form-select').eq(0).val();
-      if (value == '모자') {
-        $('.form-group').eq(1).addClass('form-hide');
-      }
-  
-    });
-</script>
 
 <script>
 
