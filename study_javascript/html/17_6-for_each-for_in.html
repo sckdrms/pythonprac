@@ -6,7 +6,7 @@
   <title>Document</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="../CSS/16_4-select_input.css">
+  <link rel="stylesheet" href="../CSS/17_6-for_each-for_in.css">
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   <style>
@@ -85,12 +85,19 @@
 
 
 <script>
+
+  var pants = [28, 30, 32];
+  var shirts = [95, 100, 105]
+
   $('.form-select').eq(0).on('input', function(){
   var value = $('.form-select').eq(0).val();
   if (value == '셔츠') {
     $('.form-group').eq(1).removeClass('form-hide');
-    var 셔츠사이즈 = `<option>95</option><option>100</option><option>105</option>`;
-    $('.form-select').eq(1).html(셔츠사이즈);
+    $('.form-select').eq(1).html('')
+    shirts.forEach(function(shirt_size){
+      $('.form-select').eq(1).append(`<option>${shirt_size}</option>`)
+    })
+
   }
 
   else if (value == '모자') {
@@ -99,11 +106,22 @@
 
   else if (value == '바지') {
     $('.form-group').eq(1).removeClass('form-hide');
-    var 바지사이즈 = `<option>28</option><option>30</option><option>32</option>`;
-    $('.form-select').eq(1).html(바지사이즈);
+    $('.form-select').eq(1).html('')
+    // for (var i = 0; i < pants.length; i++){}
+    pants.forEach(function(a, i){
+      $('.form-select').eq(1).append(`<option>${a}</option>`);
+    })
   };
 
 })
+
+var obj = {name : 'kim', age : '24'}
+  for (var key in obj){
+    console.log(key);
+    console.log(obj[key])
+  }
+
+
 </script>
 
 
