@@ -24,36 +24,63 @@
     var 출석부 = ['흥민', '영희', '철수', '재석'];
     var name = '철수'
 
-    for (var i = 0; i < 출석부.length; i++){
-      function 이름찾기(name){
-      if (출석부[i] == '철수'){
+    for (var i = 0; i < 4; i++){
+      function 이름찾기(철수){
+      if (출석부[i] == 철수){
         console.log('있어요')
       }
-  
-    }}
+    }
+  }
+
+  </script>
+
+    <script>
+    var 출석부 = ['흥민', '영희', '철수', '재석'];
+    var name = '철수'
+
+    function 이름찾기00(철수){
+      for (var i = 0; i < 4; i++){
+        if (출석부[i] == 철수){
+          console.log('있어요')
+      }
+    }
+  }
 
   </script>
 
 <script>
-var 출석부 = ['흥민', '영희', '철수', '재석'];
-var nameToFind = '철수'; // 찾고자 하는 이름
+  var 출석부 = ['흥민', '영희', '철수', '재석'];
 
-function 이름찾기1(name, 출석부) {
-    var found = false; // 이름을 찾았는지 여부를 나타내는 플래그 변수
-
-    for (var i = 0; i < 출석부.length; i++) {
-        if (출석부[i] === name) { // 이름을 찾았을 때
-            found = true; // 플래그 변수를 true로 설정
-            break; // 루프 종료
-        }
+function 이름찾기0(name){
+  for (var i = 0; i < 4; i++) {
+    if ( name == 출석부[i]) {
+      console.log('있어요')
     }
-
-    if (found) {
-        console.log(name + '이(가) 출석부에 있어요');
-    } else {
-        console.log(name + '이(가) 출석부에 없어요');
-    }
+  }
 }
+</script>
+
+
+<script>
+  var 출석부 = ['흥민', '영희', '철수', '재석'];
+  var nameToFind = '철수'; // 찾고자 하는 이름
+  
+  function 이름찾기1(name) {
+      var found = false; // 이름을 찾았는지 여부를 나타내는 플래그 변수
+  
+      for (var i = 0; i < 출석부.length; i++) {
+          if (출석부[i] === name) { // 이름을 찾았을 때
+              found = true; // 플래그 변수를 true로 설정
+              break; // 루프 종료
+          }
+      }
+  
+      if (found) {
+          console.log(name + '이(가) 출석부에 있어요');
+      } else {
+          console.log(name + '이(가) 출석부에 없어요');
+      }
+  }
 </script>
 
 
@@ -70,6 +97,36 @@ function 이름찾기1(name, 출석부) {
   }
 
 </script>
+
+
+<!--  -->
+<!--  -->
+<!--  -->
+
+<script>
+function 구구단(a, b){
+  for(var a=1; a < 10; a++){
+    for(var b = 0;  b < 10; b++){
+      console.log(a*b)
+    }
+  }
+}
+</script>
+<!--  -->
+<!--  -->
+<!--  -->
+
+<script>
+  function 평균점수(x,y){
+    if(){
+      console.log(`평균점수보다 ${total}점이 올랐네요, 축하함.`)
+    }
+    else if(){
+      console.log(`평균점수보다 ${total}점이 떨어졌네요, 재수하셈.`)
+    }
+  }
+</script>
+
 
 
 </body>
