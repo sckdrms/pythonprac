@@ -117,16 +117,78 @@ function 구구단(a, b){
 <!--  -->
 
 <script>
+  var total = []
+  var score = [a, b, c, d]
   function 평균점수(x,y){
-    if(){
+    score.forEach(function(aa,bb){
+      if(){
       console.log(`평균점수보다 ${total}점이 올랐네요, 축하함.`)
-    }
-    else if(){
-      console.log(`평균점수보다 ${total}점이 떨어졌네요, 재수하셈.`)
-    }
+      }
+      else if(){
+        console.log(`평균점수보다 ${total}점이 떨어졌네요, 재수하셈.`)
+      }
+    });
   }
 </script>
 
+
+<script>
+  // 샘플 점수 (a, b, c, d 자리에 실제 값을 입력해야 합니다)
+  var score = [10, 20, 30, 40];
+
+  function 평균계산(arr) {
+    var sum = 0;
+    for (var i = 0; i < arr.length; i++) {
+      sum += arr[i];
+    }
+    return sum / arr.length;
+  }
+
+  function 비교계산() {
+    var average = 평균계산(score);
+    for (var i = 0; i < score.length; i++) {
+      var difference = score[i] - average;
+
+      if (difference > 0) {
+        console.log(`점수 ${score[i]}는 평균보다 ${difference}점 높습니다. 축하드립니다!`);
+      } else if (difference < 0) {
+        console.log(`점수 ${score[i]}는 평균보다 ${-difference}점 낮습니다. 좀 더 노력하실 필요가 있습니다.`);
+      } else {
+        console.log(`점수 ${score[i]}는 평균과 동일합니다.`);
+      }
+    }
+  }
+
+  // 함수 호출하여 점수 비교
+  비교계산();
+</script>
+
+
+<script>
+  function 함수(arr, b){
+    var 총점 = 0;
+
+    for(let i = 0; i < arr.length; i++){
+      총점 = 총점 + arr[i]
+    }
+
+    let 차이 = 총점/arr.length - b
+
+    if(차이 < 0){
+      console.log(`평균보다 ${-차이}점 높네요 ㅊㅊ`)
+    }
+    else if(차이 > 0){
+      console.log(`평균보다 ${차이}점 낮네요 재수 ㄱ`)
+    }
+    else{
+      console.log('같은것도 능력임')
+    }
+
+  // arr 안에 있는 숫자들 평균내기
+  // 그걸 b랑 비교해서 b가 더 크면 console.log('올랐네요')
+  // b가 더 작으면 console.log('재수추천')
+}
+</script>
 
 
 </body>
