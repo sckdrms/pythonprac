@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="../CSS/21_8-Ajax.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+  </style>
+</head>
+<body>
+
+
+  <div class="container">
+    <div id="iteminfo" class="row">
+  
+        <!-- <div class="col-sm-4">
+          <img src="https://via.placeholder.com/600" class="w-100">
+          <h5>Card title</h5>
+          <p>가격 : 70000</p>
+        </div>
+   -->
+    </div>
+  </div> 
+  
+
+
+<div class="container mt-3">
+  <div class="card p-3">
+    <span class="car-title">차종</span>
+    <span class="car-price">가격</span>
+  </div>
+</div>
+
+
+
+<form class="container my-5 form-group" id="item">
+  <p>상품선택</p>
+  <select class="form-select mt-2">
+    <option>모자</option>
+    <option>셔츠</option>
+    <option>바지</option>
+  </select>
+</form>
+
+<form class="container my-5 form-group form-hide" id="size">
+  <p>사이즈 선택</p>
+  <select class="form-select mt-2">
+    <option>95</option>
+    <option>100</option>
+    <option>105</option>
+  </select>
+</form>
+
+
+
+<div id="test">
+
+</div>
+
+<script>
+  a.innerHTML= '안녕';
+  $('#test').append(a);
+</script>
+
+
+
+<script>
+
+  var pants = [28, 30, 32];
+  var shirts = [95, 100, 105]
+
+  $('.form-select').eq(0).on('input', function(){
+  var value = $('.form-select').eq(0).val();
+  if (value == '셔츠') {
+    $('.form-group').eq(1).removeClass('form-hide');
+    $('.form-select').eq(1).html('')
+    shirts.forEach(function(shirt_size){
+      $('.form-select').eq(1).append(`<option>${shirt_size}</option>`)
+    })
+
+  }
+
+  else if (value == '모자') {
+    $('.form-group').eq(1).addClass('form-hide');
+  }
+
+  else if (value == '바지') {
+    $('.form-group').eq(1).removeClass('form-hide');
+    $('.form-select').eq(1).html('')
+    // for (var i = 0; i < pants.length; i++){}
+    pants.forEach(function(a, i){
+      $('.form-select').eq(1).append(`<option>${a}</option>`);
+    })
+  };
+
+})
+
+var obj = {name : 'kim', age : '24'}
+  for (var key in obj){
+    console.log(key);
+    console.log(obj[key])
+  }
+
+
+</script>
+
+
+
+
+
+  <div class="container mt-5">
+    <ul class="list">
+      <li class="tab-button">Products</li>
+      <li class="tab-button orange">Information</li>
+      <li class="tab-button">Shipping</li>
+    </ul>
+    <div class="tab-content show">
+      <p>상품설명입니다. Product</p>
+    </div>
+    <div class="tab-content">
+      <p>스펙설명입니다. Information</p>
+    </div>
+    <div class="tab-content">
+      <p>배송정보입니다. Shipping</p>
+    </div>
+  </div> 
+
+
+
+
+<script>
+// make itemlist and data binding
+
+var products = [
+  { id: 0, title: 'Blossom Dress', price: 70000 },
+  { id: 1, title: 'Springfield Shirt', price: 50000 },
+  { id: 2, title: 'Black Monastery', price: 60000 }
+];
+
+
+
+// var 상품정보 = `<div class="col-sm-4">
+//           <img src="https://via.placeholder.com/600" class="w-100">
+//           <h5> ${products.title}</h5>
+//           <p>가격 : ${products.ptice} </p>
+//         </div>`
+
+// $('#iteminfo').append(상품정보){
+//   for(i = 0; i < products.length; i++;)
+// }
+
+for(var i = 0; i < products.length; i++){
+  var 상품정보 = `<div class="col-sm-4">
+          <img src="https://via.placeholder.com/600" class="w-100">
+          <h5> ${products[i].title}</h5>
+          <p>가격 : ${products[i].price} </p>
+        </div>`
+  $('#iteminfo').append(상품정보)
+}
+
+
+</script>
+
+<!-- review js -->
+
+<script>
+
+var car2 = {name: '배송비', price: [70000, 3000, 4000]}
+  $('.car-title').html(car2.name)
+  // $('.car-title').html(car2['name'])
+  $('.car-price').html(car2.price[1])
+
+
+</script>
+
+
+
+<script>
+
+  
+
+var 버튼 = $('.tab-button')
+var 콘텐츠 = $('.tab-content')
+
+for (let i = 0; i < $('.tab-button').length; i ++){
+  버튼.eq(i).on('click', function(){
+  탭열기(i)
+})
+}
+
+function 탭열기(변수){
+   
+    버튼.removeClass('orange')
+    버튼.eq(변수).addClass('orange')
+  
+    콘텐츠.removeClass('show')
+    콘텐츠.eq(변수).addClass('show')
+  
+
+}
+</script>
+
+<!-- 8.Ajax -->
+<script>
+
+  $.get('https://codingapple1.github.io/hello.txt11')
+    .done(
+    function(파라미터){
+      console.log(파라미터)
+    })
+    .fail(function(){
+      console.log('load fail')
+    })
+
+
+  $.post('https://codingapple1.github.io/hello.txt', {name: 'kim'}).done(
+    function(파라미터){
+      console.log(파라미터)
+    }
+  );
+
+
+  $.get('https://codingapple1.github.io/price.json')
+    .done(
+      function(data){
+        console.log(data)
+        console.log(data.price)
+      }
+    )
+
+
+</script>
+
+
+
+</body>
+</html>
