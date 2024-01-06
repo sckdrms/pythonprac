@@ -155,11 +155,31 @@ var products = [
 //   for(i = 0; i < products.length; i++;)
 // }
 
-for(var i = 0; i < products.length; i++){
-  var 상품정보 = `<div class="col-sm-4">
+// for(var i = 0; i < products.length; i++){
+//   var 상품정보 = `<div class="col-sm-4">
+//           <img src="https://via.placeholder.com/600" class="w-100">
+//           <h5> ${products[i].title}</h5>
+//           <p>가격 : ${products[i].price} </p>
+//         </div>`
+//   $('#iteminfo').append(상품정보)
+// }
+
+
+// for (var i = 0; i < products.length; i++){
+//   var 상품정보 = `<div class="col-sm-4">
+//           <img src="https://via.placeholder.com/600" class="w-100">
+//           <h5>${products[i].title}</h5>
+//           <p>가격 : ${products[i].price}</p>
+//         </div>`
+//   $('#iteminfo').append(상품정보)
+// }
+
+
+for (var i = 0; i < products.length; i++){
+  var 상품정보 = ` <div class="col-sm-4">
           <img src="https://via.placeholder.com/600" class="w-100">
           <h5> ${products[i].title}</h5>
-          <p>가격 : ${products[i].price} </p>
+          <p>가격 : ${products[i].price}</p>
         </div>`
   $('#iteminfo').append(상품정보)
 }
