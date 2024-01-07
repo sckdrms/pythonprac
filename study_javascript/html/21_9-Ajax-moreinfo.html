@@ -131,8 +131,9 @@ var obj = {name : 'kim', age : '24'}
     </div>
   </div> 
 
-
-
+<div id="moreinfo" class="container">
+  <button class="btn btn-danger">더보기</button>
+</div>
 
 <script>
 // make itemlist and data binding
@@ -175,13 +176,35 @@ var products = [
 // }
 
 
-for (var i = 0; i < products.length; i++){
-  var 상품정보 = ` <div class="col-sm-4">
+// for (var i = 0; i < products.length; i++){
+//   var 상품정보 = ` <div class="col-sm-4">
+//           <img src="https://via.placeholder.com/600" class="w-100">
+//           <h5> ${products[i].title}</h5>
+//           <p>가격 : ${products[i].price}</p>
+//          </div>`
+//   $('#iteminfo').append(상품정보)
+// }
+
+// -----------------------------------------------------------------
+// products.forEach((a, i)=>{
+//       var 템플릿 = 
+//       `<div class="col-sm-4">
+//         <img src="https://via.placeholder.com/600" class="w-100">
+//         <h5>${products[i].title}</h5>
+//         <p>가격 : ${products[i].price}</p>
+//       </div>`;
+//       $('.row').append(템플릿)
+// });
+// -----------------------------------------------------------------
+
+for(var  i = 0; i < products.length; i++){
+  var 상품정보 = `<div class="col-sm-4">
           <img src="https://via.placeholder.com/600" class="w-100">
-          <h5> ${products[i].title}</h5>
+          <h5>${products[i].title}</h5>
           <p>가격 : ${products[i].price}</p>
         </div>`
   $('#iteminfo').append(상품정보)
+
 }
 
 
@@ -257,7 +280,95 @@ function 탭열기(변수){
 
 </script>
 
+<script>
 
+  $('#moreinfo').on('click', function(){
+    let 클릭횟수 = 0
+      for(var c = 0; c <= 2; c++)
+      if (c === 1){
+    $.get('https://codingapple1.github.io/js/more1.json')
+    .done(
+      function(data){console.log(data)
+
+        for(var i = 0; i < 3; i++){
+          var 더보기 = `<div class="col-sm-4">
+          <img src="https://via.placeholder.com/600" class="w-100">
+          <h5>${data[i].title}</h5>
+          <p>가격 : ${data[i].price}</p>
+        </div>
+          `
+          $('#iteminfo').append(더보기)
+        }
+      })
+    }
+    else if (c === 2){
+    $.get('https://codingapple1.github.io/js/more2.json')
+    .done(
+      function(data){console.log(data)
+
+        for(var i = 0; i < 3; i++){
+          var 더보기 = `<div class="col-sm-4">
+          <img src="https://via.placeholder.com/600" class="w-100">
+          <h5>${data[i].title}</h5>
+          <p>가격 : ${data[i].price}</p>
+        </div>
+          `
+          $('#iteminfo').append(더보기)
+          $('#moreinfo').addClass('.form-hide')
+        }
+      })
+    }
+  })
+
+
+  $(document).ready(function() {
+      let 클릭횟수 = 0;
+
+      $('#moreinfo').on('click', function() {
+        // 더보기 버튼 클릭 시에만 동작하도록 조건 추가
+        if (클릭횟수 === 0) {
+          $.get('https://codingapple1.github.io/js/more1.json')
+            .done(function(data) {
+              console.log(data);
+
+              for (var i = 0; i < 3; i++) {
+                var 더보기 = `<div class="col-sm-4">
+                  <img src="https://via.placeholder.com/600" class="w-100">
+                  <h5>${data[i].title}</h5>
+                  <p>가격 : ${data[i].price}</p>
+                </div>`;
+                $('#iteminfo').append(더보기);
+              }
+
+              클릭횟수++; // 클릭 횟수 증가
+
+              // 두 번째 클릭에서 더보기 버튼 숨김 처리
+              if (클릭횟수 === 2) {
+                $('#moreinfo').addClass('form-hide');
+              }
+            });
+        } else if (클릭횟수 === 1) {
+          $.get('https://codingapple1.github.io/js/more2.json')
+            .done(function(data) {
+              console.log(data);
+
+              for (var i = 0; i < 3; i++) {
+                var 더보기 = `<div class="col-sm-4">
+                  <img src="https://via.placeholder.com/600" class="w-100">
+                  <h5>${data[i].title}</h5>
+                  <p>가격 : ${data[i].price}</p>
+                </div>`;
+                $('#iteminfo').append(더보기);
+              }
+
+              // 두 번째 클릭에서 더보기 버튼 숨김 처리
+              $('#moreinfo').addClass('form-hide');
+            });
+        }
+      });
+    });
+
+</script>
 
 </body>
 </html>
