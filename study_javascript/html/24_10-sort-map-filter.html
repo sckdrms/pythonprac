@@ -135,14 +135,43 @@ var obj = {name : 'kim', age : '24'}
   <button class="btn btn-danger">더보기</button>
 </div>
 
+<div id="sort-price" class="container my-3">
+  <button class="btn btn-danger">가격순 정렬</button>
+</div>
+
+<div id="sort-revname" class="container my-3">
+  <button class="btn btn-danger">이름 역순 정렬</button>
+</div>
+
+<div id="filter-60000" class="container my-3">
+  <button class="btn btn-danger"> 6만원 이하만 보기</button>
+</div>
+
+
 <script>
 // make itemlist and data binding
 
 var products = [
-  { id: 0, title: 'Blossom Dress', price: 70000 },
+  { id: 0, title: 'Black Monastery', price: 70000 },
   { id: 1, title: 'Springfield Shirt', price: 50000 },
-  { id: 2, title: 'Black Monastery', price: 60000 }
+  { id: 2, title: 'Awesome Dress', price: 60000 }
 ];
+
+var 어레이 = [5,2,6,8,10,22];
+// sort는 원본 수정 O
+어레이.sort();
+어레이.sort(function(a,b){
+  return a-b
+});
+//  filter은 원본 수정 X
+var 새어레이 = 어레이.filter(function(a){
+  return a < 4
+})
+// map은 일괄처리
+var 새어레이 = 어레이.map(function(a){
+  return a * 4
+})
+
 
 
 
@@ -276,6 +305,98 @@ function 탭열기(변수){
         console.log(data.price)
       }
     )
+
+//     $('#sort-price').on('click', function() {
+//   products.sort(function(a, b) {
+//     return a.price - b.price; // 가격을 기준으로 오름차순 정렬
+//   });
+
+//   // 정렬된 products 배열을 확인하기 위해 여기서 console.log 사용
+//   console.log(products);
+// });
+
+
+// $('sort-price').on('click', function(){
+//   products.sort(function(a,b){
+//     return a.price-b.price
+//   })
+// })
+
+// $('#sort-price').on('click', function(){
+//   products.sort(function(a, b){
+//     return a.price-b.price
+//   })
+// })
+
+  $('#sort-price').on('click', function(){
+    products.sort(function(a, b){
+      return a.price-b.price
+    })
+
+    $('#iteminfo').html('')
+              
+    for (var i = 0; i < 3; i++) {
+      var 더보기 = `
+        <div class="col-sm-4">        
+        <img src="https://via.placeholder.com/600" class="w-100">
+        <h5>${products[i].title}</h5>
+        <p>가격 : ${products[i].price}</p>
+        </div>`;
+        
+      $('#iteminfo').append(더보기);
+              }
+
+  })
+
+  $('#sort-revname').on('click', function(){
+    products.sort(function(a, b){
+      if(a.title<b.title){
+        return 1;
+      }
+      else if(a.title>b.title){
+        return -1;
+      }
+      else{
+        return 0;
+      }
+    })
+    console.log(products)
+
+    $('#iteminfo').html('')
+              
+    for (var i = 0; i < 3; i++) {
+      var 더보기 = `
+        <div class="col-sm-4">        
+        <img src="https://via.placeholder.com/600" class="w-100">
+        <h5>${products[i].title}</h5>
+        <p>가격 : ${products[i].price}</p>
+        </div>`;
+        
+      $('#iteminfo').append(더보기);
+              }
+
+  })
+
+
+  $('#filter-60000').on('click', function(){
+    var filter60000 =products.filter(function(a){
+      return a.price <=60000}
+    )
+
+    $('#iteminfo').html('')
+              
+    for (var i = 0; i < 3; i++) {
+      var 더보기 = `
+        <div class="col-sm-4">        
+        <img src="https://via.placeholder.com/600" class="w-100">
+        <h5>${filter60000[i].title}</h5>
+        <p>가격 : ${filter60000[i].price}</p>
+        </div>`;
+        
+      $('#iteminfo').append(더보기);
+              }
+
+  })
 
 
 </script>
