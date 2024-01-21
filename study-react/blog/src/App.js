@@ -15,7 +15,7 @@ function App() {
         <h4 style={{color : 'white', fontSize : '20px'}}>{logo}</h4>
       </div>
       <div className='list'>
-        <h4>{a[0]}</h4>
+        <h4>{a[0]} </h4>
         <p>2월 17일 발행</p>
         <h4>{a[1]}</h4>
         <p>2월 17일 발행</p>
