@@ -12,6 +12,12 @@ function App() {
   let [모달, set모달] = useState('열림');
   let [modal1, setModal1] = useState(false);
   
+
+  [1,2,3].map(function(){
+
+  })
+
+
   function 좋아요함수(){     }
   
   const handleModalToggle = () => {
@@ -38,46 +44,62 @@ function App() {
           copy = copy.sort();
           상호명변경(copy) }}>이름 정렬</button>
 
-      <div className='list'>
-
+      {/* <div className='list'>
         <h4>{name[0]} <span onClick={()=>{좋아요변경(좋아요+1)}}>👍</span> {좋아요} </h4>
         <p>2월 17일 발행</p>
         <h4>{name[1]} </h4>
         <p>2월 17일 발행</p>
         <h4 onClick={handleModalToggle}>{name[2]}</h4>
         <p>2월 17일 발행</p>
-
-
-
         {
           모달 == '닫힘' ? <Modal/> : null
         }
-
-
-
-      {/* <List></List> */}
-      </div>
+      </div> */}
+      <List></List>
     </div>
   );
 }
 
-// function List (){
+function List (){
 
-//   let [name, 상호명변경] = useState(['엽기떡볶이', '신전떡볶이', '킹콩떡볶이'])
-//   let num = 0
+  let [name, 상호명변경] = useState(['엽기떡볶이', '신전떡볶이', '킹콩떡볶이'])
+  let [좋아요, 좋아요변경] = useState([0,0,0]); 
+
+
+  return (
+    <div className='list'>
+      {name.map((itemName, index) => (
+        <div key={index}>
+          <h4>
+            {itemName}
+            <span onClick={() => {
+              let newLikes = [...좋아요];
+              newLikes[index] = 좋아요[index] + 1;
+              좋아요변경(newLikes);
+            }}>👍</span> {좋아요[index]}
+          </h4>
+          <p>몇월 몇일</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+
+// function StoreComponent() {
+//   const [name, setName] = useState(['엽기떡볶이', '신전떡볶이', '킹콩떡볶이']);
 
 //   return (
 //     <div>
-//       {name.map((itemName, index) => (
-//         <div key={index}>
-//           <h4>{itemName}</h4>
-//           <p>몇월 몇일</p>
+//       {name.map((a, i) => (
+//         <div className='list' key={i}>
+//           <h4> {a}</h4>
+//           <p>2월 17일 발행</p>
 //         </div>
 //       ))}
 //     </div>
 //   );
 // }
-
 
 function Modal(){
   return(
