@@ -11,7 +11,6 @@ function App() {
   let [좋아요, 좋아요변경] = useState(0); 
   let [모달, set모달] = useState('열림');
 
-  
 
   // const handleModalToggle = () => {
   //   if (모달 === '열림') {
@@ -27,7 +26,7 @@ function App() {
         <h4 style={{color : 'white', fontSize : '20px'}}>{logo}</h4>
       </div>
 
-      <button onClick={()=>{ 
+      {/* <button onClick={()=>{ 
           let copy = [...name];
           copy[2] = '킹콩털볶이'
           상호명변경(copy) }}>이름변경</button>
@@ -35,7 +34,7 @@ function App() {
       <button onClick={()=>{ 
           let copy = [...name];
           copy = copy.sort();
-          상호명변경(copy) }}>이름 정렬</button>
+          상호명변경(copy) }}>이름 정렬</button> */}
 
       {/* <div className='list'>
         <h4>{name[0]} <span onClick={()=>{좋아요변경(좋아요+1)}}>👍</span> {좋아요} </h4>
@@ -48,7 +47,11 @@ function App() {
           모달 == '닫힘' ? <Modal/> : null
         }
       </div> */}
+
+
       <List></List>
+      {/* <input onChange={(e)=>{입력값변경(e.target.value);}} /> */}
+
     </div>
   );
 }
@@ -57,7 +60,13 @@ function List (){
   let [name, 상호명변경] = useState(['엽기떡볶이', '신전떡볶이', '킹콩떡볶이']);
   let [좋아요, 좋아요변경] = useState([0,0,0]); 
   let [modal, setModal] = useState(false); // 모달 상태를 관리합니다.
-  let [선택된항목, 선택된항목변경] = useState(null); // 선택된 항목의 인덱스를 관리합니다.
+  let [title, setTitle] = useState(null); // 선택된 항목의 인덱스를 관리합니다.
+  let [입력값, 입력값변경] = useState('')
+
+  const 추가하기 = () => {
+    상호명변경(prev => [...prev, 입력값]); // 상태 업데이트 함수에 콜백을 사용하여 이전 상태를 기반으로 새 배열 생성
+    입력값변경(''); // 입력 필드 초기화
+  };
 
   const handleModalToggle = () => {
     if (modal === false) {
@@ -73,7 +82,7 @@ function List (){
         <div key={index}>
           <h4 onClick={() => {
               handleModalToggle(true); // 모달을 열기
-              선택된항목변경(index); // 현재 클릭한 항목의 인덱스를 저장
+              setTitle(index); // 현재 클릭한 항목의 인덱스를 저장
             }}>
             {itemName}
             <span onClick={(e) => {
@@ -84,21 +93,24 @@ function List (){
             }}>👍</span> {좋아요[index]}
           </h4>
           <p>몇월 몇일</p>
+          <button onClick={()=>{name.splice(index,1)}}>삭제하기</button>
         </div>
       ))}
-      
-      {modal == true ? <Modal color={'yellow'} title={선택된항목 !== null ? name[선택된항목] : ''} /> : null
-      }
+
+      <input value={입력값} onChange= {(e)=> 입력값변경(e.target.value)} />
+      <button onClick={추가하기}>추가하기</button>
+      {modal == true ? <Modal 상호명변경={상호명변경} color={''} title={title !== null ? name[title] : ''} /> : null}
     </div>
   );
 }
 
-function Modal({title, color}){
+function Modal({title, color, 상호명변경}){
   return(
     <div className='modal' style={{background : color}}>
       <h4>{title}</h4> {/* 제목을 props로 받아와서 표시 */}
       <p>날짜</p>
       <p>상세내용</p>
+      <button>제목 변경</button>
     </div>
   );
 }
