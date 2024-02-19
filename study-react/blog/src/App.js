@@ -63,10 +63,10 @@ function List (){
   let [title, setTitle] = useState(null); // 선택된 항목의 인덱스를 관리합니다.
   let [입력값, 입력값변경] = useState('')
 
-  const 추가하기 = () => {
-    상호명변경(prev => [...prev, 입력값]); // 상태 업데이트 함수에 콜백을 사용하여 이전 상태를 기반으로 새 배열 생성
-    입력값변경(''); // 입력 필드 초기화
-  };
+  // const 추가하기 = () => {
+  //   상호명변경(prev => [...prev, 입력값]); // 상태 업데이트 함수에 콜백을 사용하여 이전 상태를 기반으로 새 배열 생성
+  //   입력값변경(''); // 입력 필드 초기화
+  // };
 
   const handleModalToggle = () => {
     if (modal === false) {
@@ -93,12 +93,29 @@ function List (){
             }}>👍</span> {좋아요[index]}
           </h4>
           <p>몇월 몇일</p>
-          <button onClick={()=>{name.splice(index,1)}}>삭제하기</button>
+          {/* <button onClick={()=>{name.splice(index,1)}}>삭제하기</button> */}
+          {/* <button onClick={() => {
+            상호명변경(currentNames => currentNames.filter((_, filterIndex) => index !== filterIndex));
+          }}>삭제하기</button> */}
+          <button onClick={()=>{
+            let copy = [...name];
+            copy.splice(index,1)
+            상호명변경(copy);}}>삭제</button>
         </div>
       ))}
 
-      <input value={입력값} onChange= {(e)=> 입력값변경(e.target.value)} />
-      <button onClick={추가하기}>추가하기</button>
+      {/* <input value={입력값} onChange= {(e)=> 입력값변경(e.target.value)} /> */}
+      <input onChange={(e)=>{
+        입력값변경(e.target.value)
+      }} />
+
+      {/* <button onClick={추가하기}>추가하기</button> */}
+      <button onClick={() => {
+        let copy = [...name];
+        copy.unshift(입력값);
+        상호명변경(copy);
+        입력값변경('');
+      }}>추가하기</button>
       {modal == true ? <Modal 상호명변경={상호명변경} color={''} title={title !== null ? name[title] : ''} /> : null}
     </div>
   );
