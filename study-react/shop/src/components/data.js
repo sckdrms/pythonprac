@@ -3,8 +3,20 @@
 
 // export { 변수명1, 변수명2 };
 
-import { useState } from 'react';
+import { Alert } from 'bootstrap';
+import { useEffect, useState } from 'react';
 import {Routes, Route, Link, useNavigate, Outlet, useParams} from 'react-router-dom'
+import styled from 'styled-components'
+
+let Btn =  styled.button`
+  background : ${props => props.bg};
+  color : black;
+  padding : 10px
+`
+let Box =  styled.div`
+background : grey;
+padding : 20px
+`
 
 export const data = [
   {
@@ -32,6 +44,9 @@ function Main({shoes}){
   return(
     <>  
     <div className='main-bg'>
+      {/* <Box>
+        <Btn bg = 'red'>버튼</Btn>
+      </Box> */}
     </div>
     <button onClick={()=>{}}>정렬하기</button>
     <div className="container">
@@ -59,21 +74,56 @@ function Card(props){
 
 function Detail(props){
 
-  let {id} = useParams();
+  let { id } = useParams();
+  let 찾은상품 = props.shoes.find(function(x){
+    return x.id == id
+  });
+  let [salealert, setSaleAlert] = useState(true);
+  let [count, setCount] = useState(0)
+  let [inputvalue, setInputvalue] = useState('')
 
-  return(
-  <div className="container">
-    <div className="row">
-      <div className="col-md-6">
-        <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="100%" />
+  useEffect(()=>{
+    console.log('hi')
+  })
+
+  useEffect(()=>{
+    let timer =  setTimeout(()=>{setSaleAlert(false)},2000)
+    console.log(2)
+    return ()=>{//clean up function
+      console.log(1)
+      clearTimeout(timer)
+    }
+  }, [])
+
+  useEffect(()=>{
+    if (isNaN(inputvalue) == true){
+      alert('그러지 마세요')
+    }
+  }, [inputvalue])
+
+  return (
+    <div className="container">
+      {salealert == true  // sale 상태가 true일 때만 할인 메시지를 보여줍니다.
+      ?
+        <div className="alert alert-warning">
+          2초 이내 구매시 할인
+        </div>
+        :null
+      }
+      {count}
+      <button onClick={()=>{setCount(count+1)}}>+1</button>
+      <div className="row">
+        <div className="col-md-6">
+          <img src={`https://codingapple1.github.io/shop/shoes1.jpg`} width="80%" alt='#' />
+        </div>
+        <div className="col-md-6 mt-4">
+          <input onChange={(e)=>{setInputvalue(e.target.value)}} />
+          <h4 className="pt-5">{찾은상품.title}</h4>
+          <p>{찾은상품.content}</p>
+          <p>{찾은상품.price}원</p>
+          <button className="btn btn-danger">주문하기</button>
+        </div>
       </div>
-      <div className="col-md-6">
-        <h4 className="pt-5" key={id}>{props.shoes[id].title}</h4>
-        <p>{props.shoes[id].content}</p>
-        <p>{props.shoes[id].price}</p>
-        <button className="btn btn-danger">주문하기</button> 
-      </div>
-    </div>
   </div>
   )
 }
