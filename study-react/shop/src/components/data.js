@@ -4,9 +4,11 @@
 // export { 변수명1, 변수명2 };
 
 import { Alert } from 'bootstrap';
+import { Navbar, Container, Nav } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
-import {Routes, Route, Link, useNavigate, Outlet, useParams} from 'react-router-dom'
+import { Routes, Route, Link, useNavigate, Outlet, useParams } from 'react-router-dom'
 import styled from 'styled-components'
+
 
 let Btn =  styled.button`
   background : ${props => props.bg};
@@ -68,6 +70,7 @@ function Card(props){
         <img src={`https://codingapple1.github.io/shop/shoes`+props.i+`.jpg`} width="80%" alt='#' />
         <h4>{props.shoes.title}</h4>
         <p>{props.shoes.price}</p>
+        
       </div>
   );
 }
@@ -79,7 +82,8 @@ function Detail(props){
     return x.id == id
   });
   let [salealert, setSaleAlert] = useState(true);
-  let [count, setCount] = useState(0)
+  let [count, setCount] = useState(0) 
+  let [tap, setTap] = useState(0) 
   let [inputvalue, setInputvalue] = useState('')
 
   useEffect(()=>{
@@ -124,9 +128,31 @@ function Detail(props){
           <button className="btn btn-danger">주문하기</button>
         </div>
       </div>
+      
+    <Nav variant="tabs"  defaultActiveKey="link0">
+      <Nav.Item>
+        <Nav.Link eventKey="link0" onClick={()=>{setTap(0)}}>버튼0</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="link1" onClick={()=>{setTap(1)}}>버튼1</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="link2" onClick={()=>{setTap(2)}}>버튼2</Nav.Link>
+      </Nav.Item>
+    </Nav>
+    <TabContent tap = {tap} />
   </div>
   )
 }
+function TabContent(props){
+    if (props.tap == 0){
+      return <div>0</div>
+    }else if (props.tap == 1){
+      return <div>1</div>
+    }else if (props.tap == 2){
+      return <div>2</div>
+    }
+  }
 
 function About(){
   return(

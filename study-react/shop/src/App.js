@@ -6,12 +6,13 @@ import {Navbar, Container, Nav} from 'react-bootstrap';
 import { data, Main, Card, Detail, About } from './components/data.js'
 import {Routes, Route, Link, useNavigate, Outlet} from 'react-router-dom'
 import styled from 'styled-components'
-
+import axios from 'axios'
 
 
 function App() {
-  let [shoes] = useState(data)
+  let [shoes, setShoes] = useState(data)
   let navigate = useNavigate();
+  let [buttonclick, setButtonclick] = useState(0)
 
   return (
     <div className="App">
@@ -29,7 +30,7 @@ function App() {
       </Navbar>
 
       <Routes>
-        <Route path='/' element={<Main shoes={shoes}></Main>} />
+        <Route path='/' element={<Main shoes={shoes} ></Main>} />
         <Route path='/detail/:id' element={ <Detail shoes={shoes}></Detail>} />
         <Route path='/about' element={ <About></About>}>
           <Route path='member' element={ <div>대표: 김창근</div>} />
@@ -37,7 +38,21 @@ function App() {
         </Route>
         <Route path='*' element={ <div>없는 페이지랑께요</div>} />
       </Routes>
+      
+      <button onClick={()=>{ 
+        axios.get('https://codingapple1.github.io/shop/data2.json').then((result)=>{
+          let copy = [...shoes,...result.data]
+          setShoes(copy)
+          }
+        )
+        .catch(()=>{
+          console.log('load fail')
+        })
+      }}>버튼</button>
+      
+      <button onClick={()=>{
 
+      }}>보내기</button>
 
     </div>
   );
