@@ -3,10 +3,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 import {Navbar, Container, Nav} from 'react-bootstrap';
 // import bg from './img/bg.png';
-import { data, Main, Card, Detail, About } from './components/data.js'
+import { data, Main, Card, Detail, About } from './components/Data.js'
 import {Routes, Route, Link, useNavigate, Outlet} from 'react-router-dom'
 import styled from 'styled-components'
 import axios from 'axios'
+import Cart from './components/Cart'
 
 
 function App() {
@@ -37,6 +38,9 @@ function App() {
           <Route path='skill' element={ <div>트월킹 고수</div>} />
         </Route>
         <Route path='*' element={ <div>없는 페이지랑께요</div>} />
+        <Route path='/cart' element={<Cart></Cart>}>
+
+        </Route>
       </Routes>
       
       <button onClick={()=>{ 
@@ -59,6 +63,11 @@ function App() {
 
 }
 
+
+function FadeControl(){
+  let [fade, setFade] = useState('')
+
+}
 
 
 export default App;

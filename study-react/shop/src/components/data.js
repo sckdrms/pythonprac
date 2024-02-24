@@ -85,6 +85,7 @@ function Detail(props){
   let [count, setCount] = useState(0) 
   let [tap, setTap] = useState(0) 
   let [inputvalue, setInputvalue] = useState('')
+  let [fade2, setFade2] = useState('')
 
   useEffect(()=>{
     console.log('hi')
@@ -105,8 +106,16 @@ function Detail(props){
     }
   }, [inputvalue])
 
+  useEffect(()=>{
+    setTimeout(() => {setFade2('end')}, 100);
+
+    return()=>{
+      setFade2('')
+    }
+  }, [])
+
   return (
-    <div className="container">
+    <div className={`container start ${fade2}`}>
       {salealert == true  // sale 상태가 true일 때만 할인 메시지를 보여줍니다.
       ?
         <div className="alert alert-warning">
@@ -140,18 +149,27 @@ function Detail(props){
         <Nav.Link eventKey="link2" onClick={()=>{setTap(2)}}>버튼2</Nav.Link>
       </Nav.Item>
     </Nav>
-    <TabContent tap = {tap} />
+    <TapContent tap = {tap} />
   </div>
   )
 }
-function TabContent(props){
-    if (props.tap == 0){
-      return <div>0</div>
-    }else if (props.tap == 1){
-      return <div>1</div>
-    }else if (props.tap == 2){
-      return <div>2</div>
+function TapContent({tap, shoes}){
+
+  let [fade, setFade] = useState('') 
+
+  useEffect(()=>{
+    setTimeout(() => {setFade('end')}, 100);
+
+    return()=>{
+      setFade('')
     }
+  }, [tap])
+
+  return(
+  <div className={`start ${fade}`}>
+    {[<div>내용1</div>, <div>내용2</div>, <div>내용3</div>][tap]}
+  </div>
+  )
   }
 
 function About(){
