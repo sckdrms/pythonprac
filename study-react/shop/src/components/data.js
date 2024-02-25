@@ -8,6 +8,9 @@ import { Navbar, Container, Nav } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import { Routes, Route, Link, useNavigate, Outlet, useParams } from 'react-router-dom'
 import styled from 'styled-components'
+import { addItem } from './../store.js';
+import { useDispatch } from 'react-redux';
+
 
 
 let Btn =  styled.button`
@@ -86,6 +89,7 @@ function Detail(props){
   let [tap, setTap] = useState(0) 
   let [inputvalue, setInputvalue] = useState('')
   let [fade2, setFade2] = useState('')
+  let dispatch = useDispatch()
 
   useEffect(()=>{
     console.log('hi')
@@ -134,7 +138,10 @@ function Detail(props){
           <h4 className="pt-5">{찾은상품.title}</h4>
           <p>{찾은상품.content}</p>
           <p>{찾은상품.price}원</p>
-          <button className="btn btn-danger">주문하기</button>
+          <button className="btn btn-danger" onClick={()=>{
+            dispatch(addItem({ id: 찾은상품.id, name: 찾은상품.title, count: 0 }))
+            console.log(1)
+          }}>주문하기</button>
         </div>
       </div>
       

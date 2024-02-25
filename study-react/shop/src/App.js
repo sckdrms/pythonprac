@@ -26,6 +26,7 @@ function App() {
             <Nav.Link onClick={()=>{navigate('/')}}>home</Nav.Link>
             <Nav.Link onClick={()=>{navigate('/detail')}}>detail</Nav.Link>
             <Nav.Link onClick={()=>{navigate('/about')}}>about</Nav.Link>
+            <Nav.Link onClick={()=>{navigate('/cart')}}>cart</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
