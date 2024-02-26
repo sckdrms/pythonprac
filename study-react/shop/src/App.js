@@ -1,6 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {Navbar, Container, Nav} from 'react-bootstrap';
 // import bg from './img/bg.png';
 import { data, Main, Card, Detail, About } from './components/Data.js'
@@ -11,6 +11,12 @@ import Cart from './components/Cart'
 
 
 function App() {
+
+  let obj = {name: 'kim'}
+  localStorage.setItem('data', JSON.stringify(obj))
+  let 꺼낸거 = localStorage.getItem('data')
+  console.log(JSON.parse(꺼낸거).name)
+
   let [shoes, setShoes] = useState(data)
   let navigate = useNavigate();
   let [buttonclick, setButtonclick] = useState(0)
@@ -32,16 +38,14 @@ function App() {
       </Navbar>
 
       <Routes>
-        <Route path='/' element={<Main shoes={shoes} ></Main>} />
-        <Route path='/detail/:id' element={ <Detail shoes={shoes}></Detail>} />
-        <Route path='/about' element={ <About></About>}>
-          <Route path='member' element={ <div>대표: 김창근</div>} />
-          <Route path='skill' element={ <div>트월킹 고수</div>} />
+        <Route path='/' element={<Main shoes={shoes}></Main>} />
+        <Route path='/detail/:id' element={<Detail shoes={shoes}></Detail>} />
+        <Route path='/about' element={<About></About>}>
+          <Route path='member' element={<div>대표: 김창근</div>} />
+          <Route path='skill' element={<div>트월킹 고수</div>} />
         </Route>
-        <Route path='*' element={ <div>없는 페이지랑께요</div>} />
-        <Route path='/cart' element={<Cart></Cart>}>
-
-        </Route>
+        <Route path='*' element={<div>없는 페이지랑께요</div>} />
+        <Route path='/cart' element={<Cart></Cart>} />
       </Routes>
       
       <button onClick={()=>{ 

@@ -67,14 +67,27 @@ function Main({shoes}){
   )
 }
 
-function Card(props){
+function Card({shoes}) {
+  let navigate = useNavigate();
+
+  const handleClick = (id) => {
+    // 로컬 스토리지에 저장하는 로직
+    const watchedItems = JSON.parse(localStorage.getItem('watched')) || [];
+    if (!watchedItems.includes(id)) {
+      watchedItems.push(id);
+      localStorage.setItem('watched', JSON.stringify(watchedItems));
+    }
+
+    // 상세 페이지로 이동
+    navigate(`/detail/${id}`);
+  };
+
   return (
-      <div className="col-md-4">
-        <img src={`https://codingapple1.github.io/shop/shoes`+props.i+`.jpg`} width="80%" alt='#' />
-        <h4>{props.shoes.title}</h4>
-        <p>{props.shoes.price}</p>
-        
-      </div>
+    <div className="col-md-4" onClick={() => handleClick(shoes.id)}>
+      <img src={`https://codingapple1.github.io/shop/shoes${shoes.id + 1}.jpg`} width="80%" alt={shoes.title} />
+      <h4>{shoes.title}</h4>
+      <p>{shoes.price}원</p>
+    </div>
   );
 }
 
