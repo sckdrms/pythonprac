@@ -1,6 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, lazy } from 'react';
 import {Navbar, Container, Nav} from 'react-bootstrap';
 // import bg from './img/bg.png';
 import { data, Main, Card, Detail, About } from './components/Data.js'
@@ -8,6 +8,8 @@ import {Routes, Route, Link, useNavigate, Outlet} from 'react-router-dom'
 import styled from 'styled-components'
 import axios from 'axios'
 import Cart from './components/Cart'
+import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query'
+
 
 
 function App() {
@@ -16,6 +18,13 @@ function App() {
   localStorage.setItem('data', JSON.stringify(obj))
   let 꺼낸거 = localStorage.getItem('data')
   console.log(JSON.parse(꺼낸거).name)
+
+  let result = useQuery({
+    queryKey: 'username',
+    queryFn: () => axios.get('https://codingapple1.github.io/userdata.json').then((a) => a.data)
+  })
+
+  
 
   let [shoes, setShoes] = useState(data)
   let navigate = useNavigate();
@@ -34,6 +43,7 @@ function App() {
             <Nav.Link onClick={()=>{navigate('/about')}}>about</Nav.Link>
             <Nav.Link onClick={()=>{navigate('/cart')}}>cart</Nav.Link>
           </Nav>
+          <Nav className = 'ms-auto'>반가워요 {result.isLoading ? 'loading' : result.data.name} </Nav>
         </Container>
       </Navbar>
 
