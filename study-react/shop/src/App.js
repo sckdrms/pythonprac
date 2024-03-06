@@ -1,6 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useEffect, useState, lazy } from 'react';
+import { useEffect, useState, lazy, Suspense } from 'react';
 import {Navbar, Container, Nav} from 'react-bootstrap';
 // import bg from './img/bg.png';
 import { data, Main, Card, Detail, About } from './components/Data.js'
