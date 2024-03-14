@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="../CSS/2_2-homework.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+  </style>
+</head>
+<body>
+
+<button id="button">버튼</button>
+
+  <script>
+// 2번째
+    var 오브젝트 = {
+      data: {
+        함수: function(){
+          console.log(this)
+        }
+      }
+    }
+// 3번째
+    function 기계(){
+      this.이름 = 'kim'
+    }
+
+    var 오브젝트 = new 기계();
+
+// 4번째
+    document.getElementById('버튼').addEventListener('click', function(e){
+      // this;
+      // e.currentTarget;
+      // 이벤트 동작하는 곳
+      var 어레이 = [1,2,3];
+      어레이.forEach(function(a){
+        console.log(this)
+      })
+      // window 3번 출력 (2번)
+    })
+
+    var 오브젝트 = {
+      name: ['kim', 'lee', 'park'],
+      함수 : function(){
+        console.log(this); //오브젝트 보여줌
+        오브젝트.name.forEach(function(){
+          console.log(this)
+        })
+      }
+    }
+
+    오브젝트.함수(); // window 3번
+
+    var 오브젝트2 = {
+      name: ['kim', 'lee', 'park'],
+      함수 : function(){
+        console.log(this); //오브젝트2 보여줌
+        오브젝트2.name.forEach(()=>{
+          console.log(this) // 이러면 오브젝트2 3번 보여줌
+        })
+      }
+    }
+
+
+// 5.Arrow function은 function을 대체하는 신문법이 아님
+
+    var 함수 = a = console.log(a);
+    함수(5);
+
+    [1,2,3,4].forEach( a => console.log(a));
+
+    document.getElementById('버튼').addEventListener('click', (e)=>{
+      this // window가 됨 "=>" 때문에 그럼
+    })
+
+    var 오브젝트3 = {
+      함수3: ()=>{
+        this // 똑같이 window나옴
+      }
+    }
+    
+    오브젝트3.함수3();
+
+
+
+
+  </script>
+
+
+</body>
+</html>
