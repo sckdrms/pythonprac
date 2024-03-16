@@ -1,0 +1,24 @@
+<script>
+
+  function 더하기(a,b,c){
+    console.log(a+b+c)
+  }
+
+  var 어레이 = [10,20,30]
+  console.log(더하기(...어레이))
+
+
+
+  var person = {
+    인사 : function(){
+      console.log( 'Hi' + this.name)
+    }
+  }
+
+  var person2 = {
+    name : '손흥민'
+  }
+
+  console.log( person.인사.apply(person2))
+
+</script>
