@@ -1,0 +1,58 @@
+<!-- 1. 1,2,3,김밥 -->
+<!-- 김 밥 1 2 3 -->
+
+<!-- 2. you -->
+<!-- you -->
+
+<!-- 3. 9 -->
+<!-- 9 -->
+
+<!-- 4. 언디파인드 -->
+<!-- 15 -->
+
+<script>
+// 5
+// function array(...i){
+//   [i]
+// }
+
+function array1(...arguments){
+  return arguments
+}
+
+var newarray = array1(1,2,3,4,5);
+console.log(newarray)
+
+// 6
+function max1(...arguments){
+  Math.max(arguments)
+
+}
+
+// 7
+function sort1(){
+  console.log([...word].sort());
+}
+
+var word = 'bear'
+sort1(word)
+
+// 8
+
+cword('aaabbc');
+
+function cword(word1){
+
+  var result = {}
+  [...word1].forEach(function(a){
+    if(result[a] > 0){
+      result[a] = result[a] + 1;  
+    }
+    else{
+      result[a] = 1;
+    }
+  })
+  console.log(result)
+}
+
+</script>
