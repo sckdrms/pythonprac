@@ -1,0 +1,26 @@
+<script>
+
+  function 기계(이름, 나이){
+    this.name = 이름
+    this.price - 나이
+    this.함수 = function(){
+      console.log(this.name + 'hi')
+    }
+  }
+
+  기계.prototype.gender = '남';
+  
+
+  var 학생1 = new 기계('Park')
+  var 학생2 = new 기계('Kim')
+
+
+// 8
+
+  var 부모 = { name : 'Kim'};
+  var 자식 = {};
+  자식.__proto__ = 부모;
+  
+  자식.name; // Kim나옴
+
+</script>
