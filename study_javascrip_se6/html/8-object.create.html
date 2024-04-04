@@ -1,0 +1,33 @@
+<script>
+// es5
+  var 부모  = { name : 'Kim', age : 50 };
+  var 자식 = Object.create(부모);
+  자식.age = 20;
+
+  var 손자 = Object.create(자식);
+  손자.name;
+
+  Object.create()
+// es5
+
+// es6
+
+  class 부모1 {
+    constructor(){
+      this.name = 'Kim';
+      this.sayHi = function(){
+        console.log('Hello')
+      }
+    }
+    sayHi1(){
+        console.log('Hello1')
+      }
+  }
+
+  var 자식1 = new 부모1();
+
+// es6
+
+
+
+</script>

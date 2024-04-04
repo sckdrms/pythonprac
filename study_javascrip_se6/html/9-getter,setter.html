@@ -1,0 +1,41 @@
+<script>
+
+  var 사람 = {
+    name : 'Park',
+    age : 30,
+    nextAge(){
+      return this.age + 1
+    },
+    get nextAge1(){
+      return this.age + 1
+    },
+    setAge(ages){
+      this.age = ages
+    },
+    set setAge1(ages){
+      this.age = parseInt(ages)
+    }
+  }
+
+  사람.setAge(20)
+  사람.setAge1 = '20'
+  사람.nextAge1;
+
+
+  class 사람1 {
+    constructor(){
+      this.name = 'Park';
+      this.age = 20;
+    }
+    get nextAge(){
+      return this.age + 1
+    }
+    set setAge(age){
+      this.age = parseInt(age);
+    }
+  }
+
+  var 사람11 = new 사람1();
+
+
+</script>
