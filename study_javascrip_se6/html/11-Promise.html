@@ -1,0 +1,19 @@
+<script>
+
+  var 프로미스 = new Promise(function(resolve, reject){
+    // var cal = 1 + 1;
+    // resolve(cal);
+    // reject();
+
+    setTimeout(function(){
+      resolve();
+    },1000)
+  });
+
+  프로미스.then(function(wow){
+    console.log(wow)
+  }).catch(function(){
+    console.log('2')
+  })
+
+</script>

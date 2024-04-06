@@ -1,0 +1,90 @@
+<button id="btn">button</button>
+<div id="div">div</div>
+<img id="test" src="https://codingapple1.github.io/kona.jpg"> 
+
+<script>
+
+async function 버튼확인(){
+  var 프로미스 = new Promise((res, rej)=>{
+    document.querySelector('#btn').addEventListener('click',()=>{
+      res('sax')
+    })
+  })
+
+  var 결과 = await 프로미스;
+  console.log(결과)
+}
+버튼확인()
+
+
+async function 디브확인(){
+
+  var 프로미스1 = new Promise((res, reg)=>{
+    document.querySelector('#div').addEventListener('click', ()=>{
+      res('O')
+    })
+  })
+
+  var 결과 = await 프로미스1;
+  console.log(결과)
+}
+디브확인()
+
+</script>
+
+<script>
+
+// var 프로미스2 = new Promise((res, rej)=>{
+//   document.querySelector('#test').addEventListener('load', ()=>{
+//     res()
+//   })
+//   ('error', ()=>{
+//     rej()
+//   })
+// }) 
+
+// 프로미스2.then(()=>{
+//   console.log('성공')
+// }).catch(()=>{
+//   console.log('실패')
+// })
+
+
+
+
+
+// let 프로미스2 = new Promise((resolve, reject) => {
+//   let element = document.querySelector('#test');
+//   element.onclick = () => resolve('성공');
+//   element.onerror = () => reject('실패');
+// });
+
+// 프로미스2.then((message) => {
+//   console.log(message); // '성공' 메시지를 로그에 출력
+// }).catch((error) => {
+//   console.log(error); // '실패' 메시지를 로그에 출력
+// });
+
+
+var promise1 = new Promise((res, rej)=>{
+  let img = document.querySelector('#test')
+  img.onload = () => res('성공')
+  img.onerror = () => rej('실패')
+})
+
+promise1.then((suc)=>{
+  console.log(suc)
+}).catch((fai)=>{
+  console.log(fai)
+})
+
+
+
+var promise2 = new Promise((res, rej)=>{
+  let img2 = document.querySelector('#test')
+  img2.onload = () => res('O')
+  img2.onerror = () => rej('X')
+})
+
+
+</script>

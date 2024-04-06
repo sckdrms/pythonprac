@@ -1,0 +1,67 @@
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<img id="test" src="https://codingapple1.github.io/kona.jpg"> 
+
+<script>
+
+  var 프로미스 = new Promise(function(res, rej){
+    document.querySelector('#test').addEventListener('load', function(){
+      res();
+    })
+    document.querySelector('#test').addEventListener('error', function(){
+      rej();
+    })
+  })
+
+  프로미스.then(function(){
+    console.log('O')
+  }).catch(function(){
+    console.log('X')
+  })
+
+</script>
+
+<script>
+
+  var 프로미스1 = new Promise(function(res, rej){
+    $.get('https://codingapple1.github.io/hello.txt').done(function(result){ 
+      res(result);
+    });
+  });
+
+  var 프로미스2 = new Promise((res1, rej1)=>{
+    $.get('https://codingapple1.github.io/hello2.txt').done(function(result){ 
+      res1(result)
+    });
+  })
+
+  function 프로미스3(URL){
+    return new Promise((res, rej)=>{
+      $.get(URL).done(function(result){ 
+      res(result)
+    })
+  })
+}
+
+  프로미스1.then(function(result){
+    console.log(result)
+    return 프로미스3('https://codingapple1.github.io/hello2.txt');
+  }).then(function(res){
+    console.log(res)
+  }).catch(function(){
+    console.log('fail')
+  })
+
+  var 프로미스4 = new Promise((res, rej)=>{
+    $.get('https://codingapple1.github.io/hello2.txt').done(()=>{
+      res();
+    })
+  })
+
+  프로미스4.then(()=>{
+    console.log('성공')
+  }).catch(()=>{
+    console.log('실패')
+  })
+
+
+</script> 
