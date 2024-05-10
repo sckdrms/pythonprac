@@ -15,11 +15,11 @@ int main (void)
   
   // 실수형 변수에 대한 예제
   // %.nf 는 소수점 몇번째 자리까지 표시
-  // float %f , double %lf
+  // float %f , double %f, long double %lf
   float f = 46.5f;
   printf("%.2f\n",f);
   double d = 4.428;
-  printf("%.1lf\n", d);
+  printf("%.1f\n", d);
 
 
   // 상수형 변수에 대한 예제
