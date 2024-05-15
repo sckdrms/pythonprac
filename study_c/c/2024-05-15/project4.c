@@ -1,6 +1,5 @@
 // 5단계까지 있고 점점 어려운 문제 출제 (랜덤)
 // 맞추면 통과, 틀리면 실패
-
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>

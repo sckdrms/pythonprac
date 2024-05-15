@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 
   // 선언 > 선언은 main 위에서 함
